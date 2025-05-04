@@ -1,0 +1,22 @@
+# https://github.com/crate-ci/typos
+
+name: Check for spelling errors
+
+on:
+  push:
+    branches: main
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CLICOLOR: 1
+
+jobs:
+  spelling-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check spelling in repository
+        uses: crate-ci/typos@v1.31.2
+
